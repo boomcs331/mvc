@@ -16,13 +16,23 @@
                 </li>
                 <?php if ($_SESSION['role'] == 'pc' || $_SESSION['role'] == 'admin'): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>materials">
+                    <a class="nav-link" href="<?= BASE_URL ?>pc/materials">
                         <i class="fas fa-boxes me-1"></i>ข้อมูลวัสดุ
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>material-transactions">
-                        <i class="fas fa-boxes me-1"></i>ธุรกรรมวัสดุ
+                    <a class="nav-link" href="<?= BASE_URL ?>pc/materialTransactions">
+                        <i class="fas fa-exchange-alt me-1"></i>ธุรกรรมวัสดุ
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASE_URL ?>pc/materialStock">
+                        <i class="fas fa-warehouse me-1"></i>คลังวัสดุ
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASE_URL ?>pc/transactionReport">
+                        <i class="fas fa-chart-line me-1"></i>รายงาน
                     </a>
                 </li>
                 <?php endif; ?>

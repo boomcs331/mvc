@@ -6,6 +6,7 @@
     <title><?= isset($title) ? $title : 'PHP MVC Framework' ?></title>
     <link href="<?= BASE_URL ?>lib/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= BASE_URL ?>lib/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>lib/css/dashboard.css">
 
     <style>
         .navbar-brand {

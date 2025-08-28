@@ -42,9 +42,12 @@ class HomeController extends Controller
             $this->redirect('login');
         }
 
+        $current_user = $this->getCurrentUser();
+        
         $data = [
-            'title' => 'Dashboard - PHP MVC Framework',
-            'user' => $this->getCurrentUser()
+            'title' => 'Dashboard - ระบบจัดการวัสดุ',
+            'user' => $current_user,
+            'current_user' => $current_user
         ];
 
         $this->view('home/dashboard', $data);

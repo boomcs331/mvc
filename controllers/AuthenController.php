@@ -11,29 +11,8 @@ class AuthenController extends Controller
 
     public function login()
     {
-        // ถ้า login แล้วให้ redirect ไปหน้า dashboard
-        if ($this->isLoggedIn()) {
-            switch ($_SESSION['role']) {
-                case 'admin':
-                    $this->redirect('admin/dashboard');
-                    break;
-                case 'pc':
-                    $this->redirect('pc/dashboard');
-                    break;
-                case 'user':
-                    $this->redirect('user/dashboard');
-                    break;
-                default:
-                    $this->redirect('admin/dashboard');
-            }
-        }
 
         $this->view('Login/login');
-    }
-
-    public function register()
-    {
-        $this->view('Login/register');
     }
 
     public function login_check()
@@ -44,23 +23,7 @@ class AuthenController extends Controller
 
             if ($user) {
                 $this->createSession($user);
-                // Redirect to dashboard after successful login
-                switch ($_SESSION['role']) {
-                    case 'admin':
-                        $this->redirect('admin/dashboard');
-                        break;
-                    case 'pc':
-                        $this->redirect('pc/dashboard');
-                        break;
-                    case 'we':
-                        $this->redirect('we/dashboard');
-                        break;
-                    case 'user':
-                        $this->redirect('user/dashboard');
-                        break;
-                    default:
-                        $this->redirect('admin/dashboard');
-                }
+                $this->redirect('home/dashboard');
             } else {
                 $this->view('Login/login', ['error' => 'User ID ไม่ถูกต้อง']);
             }
