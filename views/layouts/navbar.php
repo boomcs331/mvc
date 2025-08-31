@@ -1,77 +1,46 @@
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="<?= BASE_URL ?>">
-            <i class="fas fa-code me-2"></i>CPS
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a href="<?= BASE_URL ?>" class="brand-link">
+            <i class="fas fa-code"></i> CPS
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>">
-                        <i class="fas fa-home me-1"></i>หน้าแรก
-                    </a>
-                </li>
-                <?php if ($_SESSION['role'] == 'pc' || $_SESSION['role'] == 'admin'): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>pc/materials">
-                        <i class="fas fa-boxes me-1"></i>ข้อมูลวัสดุ
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>pc/materialTransactions">
-                        <i class="fas fa-exchange-alt me-1"></i>ธุรกรรมวัสดุ
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>pc/materialStock">
-                        <i class="fas fa-warehouse me-1"></i>คลังวัสดุ
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>pc/transactionReport">
-                        <i class="fas fa-chart-line me-1"></i>รายงาน
-                    </a>
-                </li>
-                <?php endif; ?>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>about">
-                        <i class="fas fa-info-circle me-1"></i>เกี่ยวกับเรา
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= BASE_URL ?>contact">
-                        <i class="fas fa-envelope me-1"></i>ติดต่อเรา
-                    </a>
-                </li> -->
-            </ul>
-            
-            <ul class="navbar-nav">
-                <?php if (isset($current_user) && $current_user): ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user me-1"></i><?= htmlspecialchars($current_user['user_name']) ?>
-                            <small class="text-muted ms-1">(<?= htmlspecialchars($current_user['user_id']) ?>)</small>
-                            <?php if (!empty($current_user['position'])): ?>
-                                <span class="badge bg-primary ms-1"><?= htmlspecialchars($current_user['position']) ?></span>
-                            <?php endif; ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>profile">โปรไฟล์</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>logout">ออกจากระบบ</a></li>
-                        </ul>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= BASE_URL ?>login">
-                            <i class="fas fa-sign-in-alt me-1"></i>เข้าสู่ระบบ
-                        </a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </div>
     </div>
-</nav> 
+    
+    <div class="navbar-menu">
+        <a href="<?= BASE_URL ?>/home/dashboard" class="nav-link">
+            <i class="fas fa-home"></i> หน้าแรก
+        </a>
+        <?php if (isset($_SESSION['role']) && ($_SESSION['role'] == 'pc' || $_SESSION['role'] == 'admin')): ?>
+        <a href="<?= BASE_URL ?>pc/materials" class="nav-link">
+            <i class="fas fa-boxes"></i> ข้อมูลวัสดุ
+        </a>
+        <a href="<?= BASE_URL ?>pc/materialTransactions" class="nav-link">
+            <i class="fas fa-exchange-alt"></i> ธุรกรรมวัสดุ
+        </a>
+        <a href="<?= BASE_URL ?>pc/materialStock" class="nav-link">
+            <i class="fas fa-warehouse"></i> คลังวัสดุ
+        </a>
+        <a href="<?= BASE_URL ?>pc/transactionReport" class="nav-link">
+            <i class="fas fa-chart-line"></i> รายงาน
+        </a>
+        <?php endif; ?>
+    </div>
+    
+    <div class="navbar-user">
+        <?php if (isset($current_user) && $current_user): ?>
+            <div class="user-info">
+                <i class="fas fa-user"></i>
+                <span><?= htmlspecialchars($current_user['user_name']) ?></span>
+                <?php if (!empty($current_user['position'])): ?>
+                    <span class="user-badge"><?= htmlspecialchars($current_user['position']) ?></span>
+                <?php endif; ?>
+            </div>
+            <a href="<?= BASE_URL ?>logout" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
+            </a>
+        <?php else: ?>
+            <a href="<?= BASE_URL ?>login" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ
+            </a>
+        <?php endif; ?>
+    </div>
+</nav>

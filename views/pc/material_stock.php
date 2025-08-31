@@ -21,9 +21,9 @@
                         <div class="col-md-3">
                             <select class="form-select">
                                 <option>ทุกหมวดหมู่</option>
-                                <option>วัสดุสำนักงาน</option>
-                                <option>วัสดุก่อสร้าง</option>
-                                <option>วัสดุไฟฟ้า</option>
+                                <option>PC</option>
+                                <option>OF</option>
+                                <option>OF-MAT</option>
                             </select>
                         </div>
                         <div class="col-md-3">
